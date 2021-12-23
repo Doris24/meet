@@ -38,14 +38,16 @@ describe('<Event /> component', () => {
     });
     EventWrapper.find('.details-button').simulate('click');
     expect(EventWrapper.state('collapsed')).toBe(false);
+    expect(EventWrapper.find('.description')).toHaveLength(1);
   });
 
   //User can collapse an event to hide its details.
   test('hide details when hide details button is clicked', () => {
-    // EventWrapper.setState({
-    //   collapsed: false,
-    // });
+    EventWrapper.setState({
+      collapsed: false,
+    });
     EventWrapper.find('.hide-details-button').simulate('click');
     expect(EventWrapper.state('collapsed')).toBe(true);
+    expect(EventWrapper.find('.description')).toHaveLength(0);
   });
 });

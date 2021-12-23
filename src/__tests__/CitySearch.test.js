@@ -8,7 +8,7 @@ describe('<CitySearch /> component', () => {
   let locations, CitySearchWrapper;
   beforeAll(() => {
     locations = extractLocations(mockData);
-    CitySearchWrapper = shallow(<CitySearch locations={locations} />); //superset of all locations as a prop
+    CitySearchWrapper = shallow(<CitySearch locations={locations} updateEvents={() => { }} />); //superset of all locations as a prop
   });
 
   test('render text input', () => {
@@ -62,6 +62,22 @@ describe('<CitySearch /> component', () => {
     const suggestions = CitySearchWrapper.state('suggestions');
     CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
     expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
+  });
+
+  test("selecting CitySearch input reveals the suggestions list", () => {
+    CitySearchWrapper.find('.city').simulate('focus');
+    expect(CitySearchWrapper.state('showSuggestions')).toBe(true);
+    expect(CitySearchWrapper.find('.suggestions').prop('style')).not.toEqual({ display: 'none' });
+  });
+
+  test('selecting a suggestion should hide the suggestions list', () => {
+    CitySearchWrapper.setState({
+      query: 'Berlin',
+      showSuggestions: undefined //manually changed, otherwise it would be true from previouls test
+    });
+    CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
+    expect(CitySearchWrapper.state('showSuggestions')).toBe(false);
+    expect(CitySearchWrapper.find('.suggestions').prop('style')).toEqual({ display: 'none' }); //check if suggestions list is hidden
   });
 
 });
