@@ -14,9 +14,8 @@ describe('<NumberOfEvents /> component', () => {
 
   //User can change the number of events they want to see.
   test('number of events displayed matches number', () => {
-    const number = { target: { value: 8 } };
-    NumberOfEventsWrapper.find('.number-input').simulate('change', number);
-    expect(NumberOfEventsWrapper.state('number')).toBe(8);
+    const number = NumberOfEventsWrapper.prop('numberOfEvents');
+    expect(NumberOfEventsWrapper.find('.number-input').prop('value')).toBe(number);
   });
 
 });

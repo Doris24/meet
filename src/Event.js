@@ -22,7 +22,9 @@ class Event extends Component {
       <p className="location">{event.location}</p>
       {/* test collapsed ??? */}
       {collapsed &&
-        <button className="details-button" onClick={this.handleClick}>Show Details</button>
+        <div className="button-wrapper">
+          <button className="details-btn details-button" onClick={this.handleClick}>Show Details</button>
+        </div>
       }
 
 
@@ -30,7 +32,10 @@ class Event extends Component {
         <div className="event-details">
           <h3>About Event:</h3>
           <p className="description">{event.description}</p>
-          <button className="hide-details-button" onClick={this.handleClick}>Hide Details</button>
+          <div className="button-wrapper">
+            <button className="details-btn hide-details-button" onClick={this.handleClick}>Hide Details</button>
+          </div>
+
         </div>
       }
     </div>;

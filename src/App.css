@@ -6,6 +6,7 @@
 
 .App * {
   box-sizing: border-box;
+  color: #03033d;
 }
 
 ul {
@@ -26,14 +27,15 @@ p {
 
 input[type="text"],
 input[type="number"] {
-  padding: 8px 6px 8px 10px;
+  margin-top: 5px;
+  padding: 4px 6px 4px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1.5px solid rgb(34, 121, 179);
   font-size: 14px;
   line-height: 20px;
   align-self: center;
-  height: 38px;
+  height: auto;
 }
 
 .city {
@@ -49,13 +51,29 @@ input[type="number"] {
   position: relative;
 }
 
+.CitySearch, .numberofevents {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+input[type="number"] {
+  width: 100px;
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 15px;
+}
+
 .suggestions {
-  width: 250px;
-  position: absolute;
+  max-width: 200px;
+  position: relative;
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 43px;
+  /* top: 43px; */
+  left: 30%;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -63,8 +81,9 @@ input[type="number"] {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: rgb(193, 219, 235);
   cursor: default;
+  width: auto;
 }
 
 .suggestions > li:last-child {
@@ -73,15 +92,15 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: rgb(137, 197, 235);
 }
 
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid rgb(34, 121, 179);
+  border-radius: 5px;
   position: relative;
 }
 
@@ -89,10 +108,18 @@ input[type="number"] {
   position: absolute;
   right: 5px;
   bottom: 5px;
-  padding: 5px 8px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 5px;
   outline: none;
   cursor: pointer;
+  background-color: rgb(193, 219, 235);
+  border-color: rgb(193, 219, 235);  
+  
+}
+.details-btn:hover {
+  background-color: rgb(137, 197, 235);
+  border-color: rgb(137, 197, 235);
+  font-weight: bold;
 }
 
 .name {
@@ -121,10 +148,10 @@ input[type="number"] {
 }
 
 .button-wrapper {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-  padding: 20px;
+  grid-gap: 20px; */
+  padding: 10px 20px;
   font-family: sans-serif;
 }
 
