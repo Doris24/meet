@@ -67,13 +67,13 @@ input[type="number"] {
 }
 
 .suggestions {
-  max-width: 200px;
+  max-width: 250px;
   position: relative;
   z-index: 2;
   align-self: center;
-  margin: 0;
+  margin: auto;
   /* top: 43px; */
-  left: 30%;
+  /* left: 30%; */
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
