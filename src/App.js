@@ -33,7 +33,11 @@ class App extends Component {
     this.mounted = false;
   }
 
-  updateEvents = (location) => {
+  updateEvents = (location, newNum) => {
+    // this.setState({
+    //   errorText: '',
+    //   numberOfEvents: newNum,
+    // });
     getEvents().then((events) => {
       const locationEvents = (location === 'all')
         ? events
