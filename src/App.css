@@ -2,6 +2,7 @@
 .App {
   text-align: center;
   padding: 2% 5%;
+  min-height: 100px;
 }
 
 .App * {
@@ -36,6 +37,7 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: auto;
+  min-height: 20px;
 }
 
 .city {
@@ -117,12 +119,11 @@ input[type="number"] {
   cursor: pointer;
   background-color: rgb(193, 219, 235);
   border-color: rgb(193, 219, 235);  
-  min-height: 10px;
+  min-height: 25px;
 }
 .details-btn:hover {
   background-color: rgb(137, 197, 235);
   border-color: rgb(137, 197, 235);
-  font-weight: bold;
 }
 
 .name {
@@ -142,13 +143,14 @@ input[type="number"] {
 
 .description {
   overflow-x: hidden;
+  min-height: 10px;
 }
 
-.numberOfEvents {
+.numberofevents {
   width: 200px;
   margin: 20px auto;
   text-align: center;
-  min-height: 10px;
+  min-height: 70px;
 }
 
 .button-wrapper {
@@ -157,6 +159,8 @@ input[type="number"] {
   grid-gap: 20px; */
   padding: 10px 20px;
   font-family: sans-serif;
+  min-height: 20px;
+  background-color: rebeccapurple;
 }
 
 .Alert {
