@@ -76,6 +76,7 @@ input[type="number"] {
   /* left: 30%; */
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+  min-height: 10px;
 }
 
 .suggestions > li {
@@ -84,6 +85,7 @@ input[type="number"] {
   background-color: rgb(193, 219, 235);
   cursor: default;
   width: auto;
+  min-height: 10px;
 }
 
 .suggestions > li:last-child {
@@ -102,6 +104,7 @@ input[type="number"] {
   border: 2px solid rgb(34, 121, 179);
   border-radius: 5px;
   position: relative;
+  min-height: 200px;
 }
 
 .details-btn {
@@ -114,7 +117,7 @@ input[type="number"] {
   cursor: pointer;
   background-color: rgb(193, 219, 235);
   border-color: rgb(193, 219, 235);  
-  
+  min-height: 10px;
 }
 .details-btn:hover {
   background-color: rgb(137, 197, 235);
@@ -145,6 +148,7 @@ input[type="number"] {
   width: 200px;
   margin: 20px auto;
   text-align: center;
+  min-height: 10px;
 }
 
 .button-wrapper {
