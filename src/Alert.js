@@ -4,11 +4,13 @@ class Alert extends Component {
     constructor(props) {
         super(props);
         this.color = null;
+        this.width = null;
     }
 
     getStyle = () => {
         return {
             color: this.color,
+            width: '200px',
         };
     }
 
@@ -35,5 +37,4 @@ class ErrorAlert extends Alert {
     }
 }
 
-export { InfoAlert };
-export { ErrorAlert };
+export { InfoAlert, ErrorAlert };
