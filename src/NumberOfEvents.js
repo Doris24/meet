@@ -6,7 +6,7 @@ class NumberOfEvents extends Component {
 
   state = {
     numberOfEvents: this.props.numberOfEvents || 32,
-    errorText: ''
+    // errorText: ''
   }
 
   handleInputChange = (event) => {
