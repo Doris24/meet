@@ -13,7 +13,7 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    warningText: '',
+    //warningText: '',
     currentLocation: 'all'
   }
 
@@ -21,7 +21,7 @@ class App extends Component {
   async componentDidMount() {
 
     // no internet connection
-    if (navigator.onLine === false) {
+    if (!navigator.onLine) {
       this.setState({
         warningText: 'The app is not connected to the internet.'
       });
@@ -61,8 +61,7 @@ class App extends Component {
 
   updateNumberOfEvents = (newNum) => {
     this.setState({
-      //errorText: '',
-      numberOfEvents: newNum,
+      numberOfEvents: newNum
     });
     this.updateEvents(this.state.currentLocation, newNum);
   };
