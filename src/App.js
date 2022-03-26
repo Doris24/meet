@@ -47,6 +47,8 @@ class App extends Component {
         events: locationEvents.slice(0, this.state.numberOfEvents),
         currentLocation: location,
       });
+
+
     });
   }
 
