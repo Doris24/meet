@@ -5,6 +5,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { extractLocations, getEvents } from './api'; // , checkToken, getAccessToken
 import './nprogress.css';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
 
@@ -12,12 +13,24 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    errorText: '',
+    warningText: '',
     currentLocation: 'all'
   }
 
   //load events when the app loads
   async componentDidMount() {
+
+    // no internet connection
+    if (navigator.onLine === false) {
+      this.setState({
+        warningText: 'The app is not connected to the internet.'
+      });
+    } else {
+      this.setState({
+        warningText: ''
+      });
+    }
+
     this.mounted = true; //
     getEvents().then((events) => {
       if (this.mounted) {
@@ -48,7 +61,7 @@ class App extends Component {
 
   updateNumberOfEvents = (newNum) => {
     this.setState({
-      errorText: '',
+      //errorText: '',
       numberOfEvents: newNum,
     });
     this.updateEvents(this.state.currentLocation, newNum);
@@ -60,6 +73,7 @@ class App extends Component {
       <div className="App">
 
         <h1>Meet App</h1>
+        <WarningAlert text={this.state.warningText} />
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} />
         <EventList events={this.state.events} />
