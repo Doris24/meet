@@ -18,7 +18,8 @@ export const extractLocations = (events) => {
 };
 
 //function to check the token's validity
-const checkToken = async (accessToken) => {
+export const checkToken = async (accessToken) => {
+  console.log(accessToken);
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
