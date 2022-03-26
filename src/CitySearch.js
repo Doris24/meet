@@ -7,7 +7,7 @@ class CitySearch extends Component {
   state = {
     query: '',
     suggestions: [],
-    showSuggestions: undefined,
+    showSuggestions: false, // undefined,
     infoText: ''
   }
 
@@ -23,7 +23,7 @@ class CitySearch extends Component {
   handleInputChanged = (event) => {
     const value = event.target.value; //read input value
     this.setState({ showSuggestions: true }); //InfoAlert
-    const suggestions = this.props.locations.filter((location) => {
+    const suggestions = this.props.locations && this.props.locations.filter((location) => { //this.props.locations.filter((location)
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
     if (suggestions.length === 0) {

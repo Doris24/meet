@@ -34,10 +34,6 @@ class App extends Component {
   }
 
   updateEvents = (location, newNum) => {
-    // this.setState({
-    //   errorText: '',
-    //   numberOfEvents: newNum,
-    // });
     getEvents().then((events) => {
       const locationEvents = (location === 'all')
         ? events
@@ -50,25 +46,13 @@ class App extends Component {
     });
   }
 
-  updateNumberOfEvents = newNum => {
-    // const newNum = e.target.value ? parseInt(e.target.value) : 32;
-    // if (newNum < 1 || newNum > 32) {
-    //   return this.setState({
-    //     errorText: 'Please choose a number between 1 and 32.',
-    //     numberOfEvents: 0,
-    //   });
-    // } else {
+  updateNumberOfEvents = (newNum) => {
     this.setState({
       errorText: '',
       numberOfEvents: newNum,
     });
-    //   this.updateEvents(this.state.currentLocation, this.state.numberOfEvents);
-
-    // }
     this.updateEvents(this.state.currentLocation, newNum);
   };
-
-
 
 
   render() {
