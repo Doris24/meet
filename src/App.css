@@ -61,6 +61,7 @@ input[type="number"] {
 input[type="number"] {
   width: 100px;
   text-align: center;
+  
 }
 
 .label {
@@ -163,8 +164,11 @@ input[type="number"] {
 }
 
 .Alert {
-  position: fixed;
-  top: 20px;
+  /* background-color: green; */
+  max-width: 200px;
+  margin: 0px auto;
+  text-align: center;
+  min-height: 20px;
 }
 
 .data-vis-wrapper {
