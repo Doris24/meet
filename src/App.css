@@ -15,9 +15,9 @@ ul {
   list-style: none;
 }
 
-h1 {
+/* h1 {
   background-color: rgb(121, 49, 111);
-}
+} */
 
 p {
   margin: 5px 0;
@@ -173,7 +173,7 @@ input[type="number"] {
   max-width: 200px;
   margin: 0px auto;
   text-align: center;
-  min-height: 20px;
+  /* min-height: 20px; */
 }
 
 .data-vis-wrapper {

@@ -6,13 +6,15 @@ class Alert extends Component {
         this.color = null;
         this.width = null;
         this.backgroundColor = null;
+        this.fontSize = null;
     }
 
     getStyle = () => {
         return {
             color: this.color,
             width: '200px',
-            backgroundColor: '#ffffff'
+            backgroundColor: '#ffffff',
+            fontSize: '14px'
         };
     }
 
@@ -42,7 +44,7 @@ class ErrorAlert extends Alert {
 class WarningAlert extends Alert {
     constructor(props) {
         super(props);
-        this.color = 'lightblue';
+        this.color = '#03033d';
         this.width = '300px';
         this.backgroundColor = '#ffffdd';
     }
