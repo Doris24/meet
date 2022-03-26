@@ -18,29 +18,22 @@ export const extractLocations = (events) => {
 };
 
 //function to check the token's validity
-export const checkToken = async (accessToken) => {
-  console.log(accessToken);
+const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
     .then((res) => res.json())
-    .catch((error) => error)
+    .catch((error) => error.json());
+
   return result;
 };
-
 
 export const getEvents = async () => {
   NProgress.start();
 
-  if (window.location.href.startsWith('http://localhost')) {
+  if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
     return mockData;
-  }
-
-  if (!navigator.onLine) {
-    const events = await localStorage.getItem('lastEvents');
-    NProgress.done();
-    return events ? JSON.parse(events).events : [];
   }
 
   const token = await getAccessToken();
@@ -48,47 +41,16 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     const url = `https://6uq9z12hs9.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}`;
-    const result = await axios.get(url, { mode: 'no-cors' });
+    const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
-      localStorage.setItem('lastEvents', JSON.stringify(result.data));
-      localStorage.setItem('locations', JSON.stringify(locations));
+      localStorage.setItem("lastEvents", JSON.stringify(result.data));
+      localStorage.setItem("locations", JSON.stringify(locations));
     }
     NProgress.done();
     return result.data.events;
   }
 };
-
-
-// export const getEvents = async () => {
-//   NProgress.start();
-
-//   if (window.location.href.startsWith("http://localhost")) {
-//     NProgress.done();
-//     return mockData;
-//   }
-
-//   // //load stored data if offline
-//   // if (!navigator.onLine) {
-//   //   const data = localStorage.getItem("lastEvents");
-//   //   NProgress.done();
-//   //   return data ? JSON.parse(data).events : [];;
-//   // }
-//   const token = await getAccessToken();
-
-//   if (token) {
-//     removeQuery();
-//     const url = `https://6uq9z12hs9.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}`;
-//     const result = await axios.get(url);
-//     if (result.data) {
-//       var locations = extractLocations(result.data.events);
-//       localStorage.setItem("lastEvents", JSON.stringify(result.data));
-//       localStorage.setItem("locations", JSON.stringify(locations));
-//     }
-//     NProgress.done();
-//     return result.data.events;
-//   }
-// };
 
 //remove the code from the URL once you’re finished with it
 //check whether there’s a path, then build the URL with the current path (or build the URL without a path using window.history.pushState())

@@ -118,8 +118,8 @@ input[type="number"] {
   border-radius: 5px;
   outline: none;
   cursor: pointer;
-  background-color: red;
-  /* background-color: rgb(193, 219, 235); */
+  /* background-color: red; */
+  background-color: rgb(193, 219, 235);
   border-color: rgb(193, 219, 235);  
   min-height: 25px;
 }
