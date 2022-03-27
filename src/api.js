@@ -23,7 +23,7 @@ export const checkToken = async (accessToken) => {
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
     .then((res) => res.json())
-    .catch((error) => error);
+    .catch((error) => error.json()); // error);
 
   return result;
 };
@@ -108,4 +108,4 @@ export const getAccessToken = async () => {
     return code && getToken(code);
   }
   return accessToken;
-}
+};
