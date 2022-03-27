@@ -13,7 +13,7 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    //warningText: '',
+    warningText: '',
     currentLocation: 'all'
   }
 
@@ -70,9 +70,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <h1>Meet App</h1>
         <WarningAlert text={this.state.warningText} />
+        <h1>Meet App</h1>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} />
         <EventList events={this.state.events} />

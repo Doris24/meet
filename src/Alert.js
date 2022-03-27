@@ -47,9 +47,9 @@ class WarningAlert extends Alert {
     constructor(props) {
         super(props);
         this.color = '#03033d';
-        this.width = 'auto';
+        this.width = '100%';
         // this.fontSize = '13px';
-        this.maxWidth = '250px';
+        //this.maxWidth = '250px';
     }
 }
 
