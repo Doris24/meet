@@ -7,6 +7,7 @@ class Alert extends Component {
         this.width = null;
         this.fontSize = null;
         this.maxWidth = null;
+        this.backgroundColor = null;
     }
 
     getStyle = () => {
@@ -15,6 +16,7 @@ class Alert extends Component {
             width: this.width,
             fontSize: '13px',
             maxWidth: this.maxWidth,
+            backgroundColor: this.backgroundColor,
         };
     }
 
@@ -50,6 +52,8 @@ class WarningAlert extends Alert {
         this.width = '100%';
         // this.fontSize = '13px';
         //this.maxWidth = '250px';
+        this.backgroundColor = '#C1EBDB';
+
     }
 }
 
