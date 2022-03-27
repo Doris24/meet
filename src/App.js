@@ -20,6 +20,16 @@ class App extends Component {
   //load events when the app loads
   async componentDidMount() {
 
+    this.mounted = true; //
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({
+          events,
+          locations: extractLocations(events)
+        });
+      }
+    });
+
     // no internet connection
     if (!navigator.onLine) {
       this.setState({
@@ -31,15 +41,6 @@ class App extends Component {
       });
     }
 
-    this.mounted = true; //
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({
-          events,
-          locations: extractLocations(events)
-        });
-      }
-    });
   }
 
   componentWillUnmount() {

@@ -8,6 +8,7 @@ class Alert extends Component {
         this.fontSize = null;
         this.maxWidth = null;
         this.backgroundColor = null;
+        this.margin = null;
     }
 
     getStyle = () => {
@@ -17,6 +18,7 @@ class Alert extends Component {
             fontSize: '13px',
             maxWidth: this.maxWidth,
             backgroundColor: this.backgroundColor,
+            margin: this.margin,
         };
     }
 
@@ -33,7 +35,6 @@ class InfoAlert extends Alert {
     constructor(props) {
         super(props);
         this.color = 'blue';
-        //this.maxWidth = '200px'
     }
 }
 
@@ -50,10 +51,8 @@ class WarningAlert extends Alert {
         super(props);
         this.color = '#03033d';
         this.width = '100%';
-        // this.fontSize = '13px';
-        //this.maxWidth = '250px';
-        this.backgroundColor = '#C1EBDB';
-
+        this.backgroundColor = '#C1DBEB';
+        this.margin = '0px';
     }
 }
 
