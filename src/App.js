@@ -16,7 +16,7 @@ class App extends Component {
     numberOfEvents: 32,
     warningText: '',
     currentLocation: 'all',
-    showWelcomeScreen: undefined
+    showWelcomeScreen: undefined,
   }
 
   //load events when the app loads
