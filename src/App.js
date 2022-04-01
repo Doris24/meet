@@ -4,6 +4,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import WelcomeScreen from './WelcomeScreen';
+import EventGenre from './EventGenre';
 import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './nprogress.css';
@@ -26,6 +27,7 @@ class App extends Component {
     this.mounted = true; //
     const accessToken = localStorage.getItem('access_token');
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    console.log({ isTokenValid });
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
     this.setState({ showWelcomeScreen: !(code || isTokenValid) });
@@ -90,7 +92,10 @@ class App extends Component {
 
 
   render() {
-    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
+    if (this.state.showWelcomeScreen) return (
+      <WelcomeScreen
+        showWelcomeScreen={this.state.showWelcomeScreen}
+        getAccessToken={() => { getAccessToken() }} />)
 
     return (
       <div className="App">
@@ -107,6 +112,7 @@ class App extends Component {
         <h4>Events in each city</h4>
 
         <ResponsiveContainer height={400} >
+          {/* <EventGenre ={events} /> */}
           <ScatterChart
             margin={{
               top: 20, right: 20, bottom: 20, left: 20,
@@ -123,9 +129,7 @@ class App extends Component {
         <EventList
           events={this.state.events} />
 
-        <WelcomeScreen
-          showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => { getAccessToken() }} />
+
 
       </div>
     );
