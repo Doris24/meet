@@ -35,7 +35,9 @@ class App extends Component {
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({
-            events,
+            //events,
+            events: events.slice(0, this.state.numberOfEvents),
+            //----
             locations: extractLocations(events)
           });
         }
@@ -110,26 +112,26 @@ class App extends Component {
           updateNumberOfEvents={this.updateNumberOfEvents} />
 
         <h4>Events in each city</h4>
-
-        <ResponsiveContainer height={400} >
-          {/* <EventGenre ={events} /> */}
-          <ScatterChart
-            margin={{
-              top: 20, right: 20, bottom: 20, left: 20,
-            }}
-          >
-            <CartesianGrid />
-            <XAxis type="category" dataKey="city" name="city" />
-            <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
-            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-            <Scatter data={this.getData()} fill="#8884d8" />
-          </ScatterChart>
-        </ResponsiveContainer>
+        <div className="chart-container" height={600}>
+          <EventGenre
+            events={this.state.events} />
+          <ResponsiveContainer height={400} >
+            <ScatterChart
+              margin={{
+                top: 20, right: 20, bottom: 20, left: 20,
+              }}
+            >
+              <CartesianGrid />
+              <XAxis type="category" dataKey="city" name="city" />
+              <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Scatter data={this.getData()} fill="#8884d8" />
+            </ScatterChart>
+          </ResponsiveContainer>
+        </div>
 
         <EventList
           events={this.state.events} />
-
-
 
       </div>
     );
