@@ -1,7 +1,15 @@
 # Meet App
 ## Project description
 This is a serverless, progressive web application with React using test-driven development technique. The application uses the Google Calendar API to fetch upcoming events.
-### User Stories:
+
+## Key Features
+1. Filter events by city
+2. Show/hide an event’s details
+3. Specify number of events
+4. Use the app when offline
+5. View a chart showing the number of upcoming events by city
+
+## User Stories:
 * As a user, I should be able to filter events by city. So that I can see the list of events that take place in that city.
     * Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities.
 
@@ -29,7 +37,19 @@ This is a serverless, progressive web application with React using test-driven d
 * As a user, I should be able to see a chart showing the upcoming events in each city. So that I can see what events are organized in which city.
     * Scenario 1: Show a chart with the number of upcoming events in each city.
 
-<!-- ## How to get the project running
-## Project dependencies
-## Which API the project uses -->
+## Technologies
+* JavaScript
+* React
+* Amazon Web Services (AWS)
+* Google Cloud Platform
+* Puppeteer
+* Jest
+* Enzyme
+* Recharts
+
+## How to get the project running
+1. Clone the repository
+2. Install npm packages 
+3. Start the app with ``npm run start``
+
 
