@@ -7,10 +7,12 @@ import reportWebVitals from './reportWebVitals';
 
 import * as atatus from 'atatus-spa';
 atatus.config('0c8e13edc9bc4fcc8bff86dbd858e500').install(); //YOUR_UNIQUE_ATATUS_CONFIG_CODE
-
+//ERROR____________________________________
+gc(;
 ReactDOM.render(
   <React.StrictMode>
     <App />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
